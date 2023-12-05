@@ -1,0 +1,36 @@
+﻿@model EmployeeManagement.ViewModels.InternalEmployeeDetailViewModel 
+@{
+    ViewData["Title"] = "Internal Employee Details";
+}
+ 
+ <div class="row">
+    <div class="col-md-4">Name:</div>
+    <div class="col-md-4">@Model?.FullName</div>
+</div>
+<div class="row">
+    <div class="col-md-4">Salary:</div>
+    <div class="col-md-4">@Model?.Salary</div>
+</div>
+<div class="row">
+    <div class="col-md-4">Years in service:</div>
+    <div class="col-md-4">@Model?.YearsInService </div>
+</div>
+<div class="row">
+    <div class="col-md-4">Suggested bonus:</div>
+    <div class="col-md-4">@Model?.SuggestedBonus </div> 
+</div>
+<div class="row">
+    <div class="col-md-4">Current job level:</div>
+    <div class="col-md-4">@Model?.JobLevel </div> 
+</div> 
+<div>
+    <form method="post" asp-controller="InternalEmployee" asp-action="ExecutePromotionRequest">
+       <input type="hidden" asp-for="Id" /> 
+       <input type="submit" 
+            class="btn btn-primary"  
+            value="Request promotion" />
+    </form>
+</div>
+<div class="row"> 
+    <div class="col-md-8 fw-bold">@ViewBag.PromotionRequestMessage</div>
+</div> 

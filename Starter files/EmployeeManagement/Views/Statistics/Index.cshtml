@@ -1,0 +1,10 @@
+﻿@model EmployeeManagement.ViewModels.StatisticsViewModel 
+@{
+    ViewData["Title"] = "Statistics";
+}
+
+ 
+<h1 class="display-3">Statistics</h1>
+
+<div>Local address: @Model?.LocalIpAddress, port @Model?.LocalPort</div>
+<div>Remote address: @Model?.RemoteIpAddress, port @Model?.RemotePort</div>

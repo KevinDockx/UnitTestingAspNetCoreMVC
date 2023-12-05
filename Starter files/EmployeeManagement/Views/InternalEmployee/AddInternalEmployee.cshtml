@@ -1,0 +1,18 @@
+﻿@model EmployeeManagement.ViewModels.CreateInternalEmployeeViewModel 
+@{
+    ViewData["Title"] = "Add Internal Employee";
+}
+
+<h1 class="display-3">Add Internal Employee</h1>
+
+    <form method="post" asp-controller="InternalEmployee" asp-action="AddInternalEmployee">
+        <fieldset class="form-group">
+            First name:
+            <input type="text" class="form-control" id="firstName" name="FirstName" placeholder="First name" required />
+        </fieldset>
+        <fieldset class="form-group">
+            Last name: 
+            <input type="text" class="form-control" id="lastName" name="LastName" placeholder="Last name" required />
+        </fieldset>
+        <input type="submit" value="Add" id="btnAdd" name="btnAdd" class="btn btn-primary" />
+    </form>

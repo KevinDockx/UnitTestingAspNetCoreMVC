@@ -1,0 +1,53 @@
+﻿@model EmployeeManagement.ViewModels.EmployeeOverviewViewModel 
+@{
+    ViewData["Title"] = "Employee Management";
+}
+
+ 
+<h1 class="display-3">Employee Management</h1>
+
+<p>
+    <a asp-action="AddInternalEmployee" asp-controller="InternalEmployee">Add new internal employee</a> </p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.InternalEmployees[0].FullName)
+            </th>
+            <th>                
+                @Html.DisplayNameFor(model => model.InternalEmployees[0].Salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InternalEmployees[0].YearsInService)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InternalEmployees[0].SuggestedBonus)
+            </th> 
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.InternalEmployees)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearsInService)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SuggestedBonus)
+                </td> 
+                <td>
+                    <a asp-action="InternalEmployeeDetails" 
+                       asp-controller="InternalEmployee" asp-route-id="@item.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+ 

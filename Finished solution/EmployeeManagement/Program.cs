@@ -1,10 +1,6 @@
 using EmployeeManagement;
-using EmployeeManagement.Business;
-using EmployeeManagement.DataAccess.DbContexts;
-using EmployeeManagement.DataAccess.Services;
 using EmployeeManagement.Middleware;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 

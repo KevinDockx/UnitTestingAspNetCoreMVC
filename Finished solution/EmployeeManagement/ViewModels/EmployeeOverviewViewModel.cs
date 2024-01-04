@@ -1,13 +1,7 @@
-﻿namespace EmployeeManagement.ViewModels
-{
-    public class EmployeeOverviewViewModel
-    {
-        public List<InternalEmployeeForOverviewViewModel> InternalEmployees { get; set; }
+﻿namespace EmployeeManagement.ViewModels;
 
-        public EmployeeOverviewViewModel(
-            IEnumerable<InternalEmployeeForOverviewViewModel> internalEmployeeViewModels)
-        {
-            InternalEmployees = internalEmployeeViewModels.ToList();
-        }
-    }
+public class EmployeeOverviewViewModel(
+    IEnumerable<InternalEmployeeForOverviewViewModel> internalEmployeeViewModels)
+{
+    public List<InternalEmployeeForOverviewViewModel> InternalEmployees { get; set; } = internalEmployeeViewModels.ToList();
 }

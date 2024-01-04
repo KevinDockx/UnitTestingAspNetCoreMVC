@@ -4,33 +4,35 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Xunit;
 
-namespace EmployeeManagement.Test
+namespace EmployeeManagement.Test;
+
+public class CheckShowStatisticsHeaderTests
 {
-    public class CheckShowStatisticsHeaderTests
+    [Fact]
+    public void OnActionExecuting_InvokeWithoutShowStatisticsHeader_ReturnsBadRequest()
     {
-        [Fact]
-        public void OnActionExecuting_InvokeWithoutShowStatisticsHeader_ReturnsBadRequest()
-        {
-            // Arrange 
-            var checkShowStatisticsHeaderActionFilter = 
-                new CheckShowStatisticsHeader();
+        // Arrange 
+        var checkShowStatisticsHeaderActionFilter = 
+            new CheckShowStatisticsHeader();
 
-            var httpContext = new DefaultHttpContext();
+        var httpContext = new DefaultHttpContext();
 
-            var actionContext = new ActionContext(httpContext, new(), new(), new());
+        var actionContext = new ActionContext(httpContext, new(), new(), new());
 
-            var actionExecutingContext = new ActionExecutingContext(
-                actionContext,
-                new List<IFilterMetadata>(),
-                new Dictionary<string, object?>(),
-                controller: null);
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
+        // Passing null as controller value is ok for this unit test, as the controller instance is never used
+        var actionExecutingContext = new ActionExecutingContext(
+            actionContext,
+            new List<IFilterMetadata>(),
+            new Dictionary<string, object?>(),
+            controller: null);
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 
-            // Act
-            checkShowStatisticsHeaderActionFilter
-                .OnActionExecuting(actionExecutingContext);
+        // Act
+        checkShowStatisticsHeaderActionFilter
+            .OnActionExecuting(actionExecutingContext);
 
-            // Assert
-            Assert.IsType<BadRequestResult>(actionExecutingContext.Result);
-        }
+        // Assert
+        Assert.IsType<BadRequestResult>(actionExecutingContext.Result);
     }
 }

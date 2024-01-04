@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http.Features;
 
-namespace EmployeeManagement.MapperProfiles
+namespace EmployeeManagement.MapperProfiles;
+
+public class StatisticsProfile : Profile
 {
-    public class StatisticsProfile : Profile
+    public StatisticsProfile()
     {
-        public StatisticsProfile()
-        {
-            CreateMap<IHttpConnectionFeature, ViewModels.StatisticsViewModel>();
-        }
+        CreateMap<IHttpConnectionFeature, ViewModels.StatisticsViewModel>();
     }
 }

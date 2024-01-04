@@ -4,23 +4,17 @@ using EmployeeManagement.ViewModels;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EmployeeManagement.Controllers
+namespace EmployeeManagement.Controllers;
+
+public class StatisticsController(IMapper mapper) : Controller
 {
-    public class StatisticsController : Controller
+    private readonly IMapper _mapper = mapper;
+
+    [CheckShowStatisticsHeader]
+    public IActionResult Index()
     {
-        private readonly IMapper _mapper;
-
-        public StatisticsController(IMapper mapper)
-        {
-            _mapper = mapper;
-        }
-
-        [CheckShowStatisticsHeader]
-        public IActionResult Index()
-        {
-            var httpConnectionFeature = HttpContext.Features
-                .Get<IHttpConnectionFeature>();
-            return View(_mapper.Map<StatisticsViewModel>(httpConnectionFeature)); 
-        }
+        var httpConnectionFeature = HttpContext.Features
+            .Get<IHttpConnectionFeature>();
+        return View(_mapper.Map<StatisticsViewModel>(httpConnectionFeature)); 
     }
 }

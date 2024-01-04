@@ -1,26 +1,25 @@
-﻿namespace EmployeeManagement.ViewModels
+﻿namespace EmployeeManagement.ViewModels;
+
+public class InternalEmployeeDetailViewModel
 {
-    public class InternalEmployeeDetailViewModel
+    public Guid Id { get; set; }
+
+    public string FirstName { get; set; } = string.Empty;
+
+    public string LastName { get; set; } = string.Empty;
+
+    public string FullName
     {
-        public Guid Id { get; set; }
-
-        public string FirstName { get; set; } = string.Empty;
-
-        public string LastName { get; set; } = string.Empty;
-
-        public string FullName
-        {
-            get { return $"{FirstName} {LastName}"; }
-        }
-
-        public int YearsInService { get; set; }
-
-        public decimal SuggestedBonus { get; set; }
-
-        public decimal Salary { get; set; }
-
-        public bool MinimumRaiseGiven { get; set; }
-
-        public int JobLevel { get; set; }
+        get { return $"{FirstName} {LastName}"; }
     }
+
+    public int YearsInService { get; set; }
+
+    public decimal SuggestedBonus { get; set; }
+
+    public decimal Salary { get; set; }
+
+    public bool MinimumRaiseGiven { get; set; }
+
+    public int JobLevel { get; set; }
 }

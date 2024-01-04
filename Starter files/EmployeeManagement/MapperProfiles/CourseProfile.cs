@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
 using EmployeeManagement.DataAccess.Entities;
 
-namespace EmployeeManagement.MapperProfiles
+namespace EmployeeManagement.MapperProfiles;
+
+public class CourseProfile : Profile
 {
-    public class CourseProfile : Profile
+    public CourseProfile()
     {
-        public CourseProfile()
-        {
-            CreateMap<Course, ViewModels.CourseViewModel>();
-        }
+        CreateMap<Course, ViewModels.CourseViewModel>();
     }
 }

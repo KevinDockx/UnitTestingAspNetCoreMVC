@@ -42,7 +42,7 @@ public class EmployeeOverviewTests
         //    .   Returns(new ViewModels.InternalEmployeeForOverviewViewModel());
 
         var mapperConfiguration = new MapperConfiguration(
-           cfg => cfg.AddProfile<MapperProfiles.EmployeeProfile>());
+           cfg => cfg.AddProfile<MapperProfiles.EmployeeProfile>(), null);
         var mapper = new Mapper(mapperConfiguration);
 
         _employeeOverviewController = new EmployeeOverviewController(

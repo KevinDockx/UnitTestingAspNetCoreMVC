@@ -48,7 +48,7 @@ public class EmployeeOverviewControllerTests
         //   employeeServiceMock.Object, mapperMock.Object);
 
         var mapperConfiguration = new MapperConfiguration(
-            cfg => cfg.AddProfile<MapperProfiles.EmployeeProfile>());
+            cfg => cfg.AddProfile<MapperProfiles.EmployeeProfile>(), null);
         var mapper = new Mapper(mapperConfiguration);
 
         _employeeOverviewController = new EmployeeOverviewController(

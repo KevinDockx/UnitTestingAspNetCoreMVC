@@ -60,7 +60,7 @@ public class InternalEmployeeControllerTests
         var promotionServiceMock = new Mock<IPromotionService>();
 
         var mapperConfiguration = new MapperConfiguration(
-            cfg => cfg.AddProfile<MapperProfiles.EmployeeProfile>());
+            cfg => cfg.AddProfile<MapperProfiles.EmployeeProfile>(), null);
         var mapper = new Mapper(mapperConfiguration);
 
         var internalEmployeeController = new InternalEmployeeController(
@@ -105,7 +105,7 @@ public class InternalEmployeeControllerTests
         var promotionServiceMock = new Mock<IPromotionService>();
 
         var mapperConfiguration = new MapperConfiguration(
-            cfg => cfg.AddProfile<MapperProfiles.EmployeeProfile>());
+            cfg => cfg.AddProfile<MapperProfiles.EmployeeProfile>(), null);
         var mapper = new Mapper(mapperConfiguration);
 
         var internalEmployeeController = new InternalEmployeeController(
@@ -164,7 +164,7 @@ public class InternalEmployeeControllerTests
                 });
 
         var mapperConfiguration = new MapperConfiguration(
-            cfg => cfg.AddProfile<MapperProfiles.EmployeeProfile>());
+            cfg => cfg.AddProfile<MapperProfiles.EmployeeProfile>(), null);
         var mapper = new Mapper(mapperConfiguration);
 
         var eligibleForPromotionHandlerMock = new Mock<HttpMessageHandler>();

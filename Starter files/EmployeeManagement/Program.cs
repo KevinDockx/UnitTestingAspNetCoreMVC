@@ -15,8 +15,9 @@ builder.Services.AddControllersWithViews();
 // add HttpClient support
 builder.Services.AddHttpClient("TopLevelManagementAPIClient");
 
-// add AutoMapper for mapping between entities and viewmodels
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+// register AutoMapper-related services
+builder.Services.AddAutoMapper(config => { },
+    AppDomain.CurrentDomain.GetAssemblies());
 
 // add support for Sessions (requires a store)
 builder.Services.AddDistributedMemoryCache();
